@@ -294,7 +294,7 @@ int DoublyLinkedList::printForward() const
     }
     std::cout << std::endl;
     // TODO: implement
-    return 0;
+    return count;
 }
 
 /// Print values tail -> head using prevPtr. Return the number of printed values.
@@ -310,7 +310,7 @@ int DoublyLinkedList::printBackward() const
     }
     std::cout << std::endl;
     // TODO: implement
-    return 0;
+    return count;
 }
 
 /// Return count.
