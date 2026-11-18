@@ -392,9 +392,9 @@ bool StdDoublyLinkedList::containsValue(NodeValue value) const
 int StdDoublyLinkedList::printForward() const
 {
     int count = 0;
-    for (const auto& value : data)
+    for (auto i = data.begin(); i != data.end(); ++i)
     {
-        std::visit([](const auto& val) { std::cout << val << " "; }, value);
+        std::visit([](const auto& val) { std::cout << val << " "; }, *i);
         count++;
     }
     // TODO: implement
