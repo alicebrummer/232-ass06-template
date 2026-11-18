@@ -294,7 +294,7 @@ int DoublyLinkedList::printForward() const
     }
     std::cout << std::endl;
     // TODO: implement
-    return 0;
+    return count;
 }
 
 /// Print values tail -> head using prevPtr. Return the number of printed values.
@@ -310,7 +310,7 @@ int DoublyLinkedList::printBackward() const
     }
     std::cout << std::endl;
     // TODO: implement
-    return 0;
+    return count;
 }
 
 /// Return count.
@@ -372,9 +372,13 @@ std::optional<NodeValue> StdDoublyLinkedList::popBackValue()
 /// Remove only the FIRST element equal to value. Return true if removed.
 bool StdDoublyLinkedList::deleteValue(NodeValue value)
 {
-    
-    // TODO: implement
+    if (containsValue(value))
+    {
+        data.remove(value);
+        return true;
+    }
     return false;
+    // TODO: implement
 }
 
 /// Search without writing your own loop.
@@ -382,7 +386,6 @@ bool StdDoublyLinkedList::containsValue(NodeValue value) const
 {
     return std::find(data.begin(), data.end(), value) != data.end();
     // TODO: implement
-    return false;
 }
 
 /// Print head -> tail (same format as Part 2). Return the number of values.
@@ -395,21 +398,27 @@ int StdDoublyLinkedList::printForward() const
         count++;
     }
     // TODO: implement
-    return 0;
+    return count;
 }
 
 /// Print tail -> head (same format as Part 2). Return the number of values.
 int StdDoublyLinkedList::printBackward() const
 {
+    int count = 0;
+    for (auto i = data.rbegin(); i != data.rend(); ++i)
+    {
+        std::visit([](const auto& val) { std::cout << val << " "; }, *i);
+        count++;
+    }
+    
+    // TODO: implement
+    return count;
         // TODO: implement
-    return 0;
 }
 
 /// size() returns size_t, length() returns int.
 int StdDoublyLinkedList::length() const
 {
     return data.size();
-    // TODO: implement
-    return 0;
 }
 // ===== END PART 3 (do not remove this marker) =====

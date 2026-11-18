@@ -101,7 +101,8 @@ void test_std_delete_only_first(void)
     DoublyLinkedList list;
     list.pushBackValue(1);
     list.pushBackValue(2);
-    list.pushBackValue(3);
+    list.pushBackValue(1);
+
 
     list.deleteValue(NodeValue{1});
     TEST_ASSERT_TRUE_MESSAGE(list.length() == 2, "Is not 2");
@@ -116,6 +117,7 @@ void test_std_delete_only_first(void)
 void test_std_pop_on_empty_list(void)
 {
     StdDoublyLinkedList list;
+
     TEST_ASSERT_TRUE_MESSAGE(!list.popFrontValue().has_value(), "Contains a value");
     TEST_ASSERT_TRUE_MESSAGE(!list.popBackValue().has_value(), "Contains a value");
 }
